@@ -1,6 +1,9 @@
 # Emacs temp files
 *~
 
+# Private start script
+start
+
 # Logs
 logs
 *.log
