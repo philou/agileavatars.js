@@ -9,14 +9,21 @@ block content
     section#content
       p#summary Tired of post-its falling from your agile or kanban whiteboard ? Order your own customized avatar magnets.
 
-      form(action="index.php", method="post")
+      form(action="/", method="post")
         ol
           li
             input(type="text", name="email", placeholder="Email", title="Enter your email if you are interested")
           li
             input(type="submit", name="send", value="I am interested")
 
-          // php code to add
+      if error
+        p.feedback.error= 'Sorry but, ' + error
+
+      if contactSent
+        p.feedback.success Thank you for your interest
+        script(type="text/javascript").
+          window.onload = function() { ga('send', 'event', 'Customers', 'Interested', '!{email}'); };
+
 
     section#illustration
       ol
